@@ -33,7 +33,7 @@ a list that incorporates all other parameters, including
 - _model$gamma_: scalar, the parameter $\gamma$ of then inverse quadratic kernel, with default $1$
 
 ### Dimensions of the data _X_
-Once _X_ is inputed, its dimensions will be recorded in following variables:
+Once _X_ is inputed, its dimensions will be automatically recorded in _model_ as following variables:
 > - _model$N1_: integer, the col number of each sample matrix
 > - _model$N2_: integer, the row number of each sample matrix
 > - _model$r_: integer, the rank of each sample matrix
