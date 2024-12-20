@@ -26,8 +26,8 @@ a list that incorporates all other parameters, including
 > - "Gaussian": the Gaussian kernel $\kappa(x,y)=\exp(-\frac{\tau}{2}\Vert x-y\Vert^2)$
 > - "InverseQ": the inverse quadratic kernel $\kappa(x,y)= (\beta+\Vert x-y\Vert^2)^{-\gamma}$
 
-- _model$F_: matrix, the parameter $F$ of the MF (or MFB) family, with default $0$
-- _model$A_: matrix, the parameter $A$ of the MB (or MFB) family, with default $0$
+- _model$F_: matrix, the parameter $F$ of the MF (or MFB) family, with default zero matrix
+- _model$A_: matrix, the parameter $A$ of the MB (or MFB) family, with default zero matrix
 - _model$tau_: scalar, the parameter $\tau$ of the Gaussian kernel, with default $1$
 - _model$beta_: scalar, the parameter $\beta$ of the inverse quadratic kernel, with default $1$
 - _model$gamma_: scalar, the parameter $\gamma$ of then inverse quadratic kernel, with default $1$
