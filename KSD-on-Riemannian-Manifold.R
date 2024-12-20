@@ -230,6 +230,7 @@ datadim <- function(x){
 }
 
 # Generating Stiefel matrices from MF(F)
+
 rMF <- function(n,F){
   X <- array( rep(F,n) , dim = c(nrow(F),ncol(F),n) )
   for(i in 1:n) X[,,i] <- rmf.matrix(F)
@@ -414,86 +415,3 @@ G_of_F <- function(X, sol, W ="U", n_prime=10000){
   return(p_value)
 }
 
-
-MLE <- function(X){
-  dim <- datadim(X)
-  n <- dim[3]
-  r <- dim[4]
- return( rowSums(X,dims = 2)/n * r )
-}
-
-Comparison <- function(model,F){
-  
-  i <- 0
-  
-  sample_n <- seq(100,500,20)
-  
-  error <- matrix(0,3,length(sample_n))
-
-  for( n in sample_n ) {
-    
-    X <- rMF(n, F)
-    
-    model <- prep(X,model)
-    
-    sol_MKSDE <- MKSDE(X,model)
-    
-    i <- i + 1
-    
-    F_hat_u <- sol_MKSDE$F_u
-    F_hat_v <- sol_MKSDE$F_v
-    F_MLE <- MLE(X)
-    
-    error[1,i] <- norm(F_hat_u-F,"F")
-    error[2,i] <- norm(F_hat_v-F,"F")
-    error[3,i] <- norm(F_MLE-F,"F")
-
-  } 
-  
-  return(error)
-    
-}
-
-
-plotErr <- function(error){
-  
-  sample_n <- seq(100,500,20)
-  
-  xlab <- "Number of samples"
-  ylab <- "Frobenius distance"
-  
-  Max <- max(error)
-  Min <- min(error)
-  
-  par(xpd=TRUE)
-  
-  plot(sample_n,error[3,], col = "green", type = "l", xlab = xlab, ylab = ylab, ylim = c(Min,Max))
-  lines(sample_n,error[1,], col = "red" )
-  lines(sample_n,error[2,], col = "blue" )
-  
-  legend(x = "top", inset = c(0,-0.2), bty = "n", horiz = TRUE, legend = c("MKSDE-U","MKSDE-V","MLE"), fill = c("red","blue","green"))
-  
-}
-
-
-p_values <- function(model){
-  
-  F_0 <- matrix(c(1,1,1,0,0,0),3,2)
-  n <- c(100,150,200,250,300)
-  F <- list(0.3*F_0, F_0, 5*F_0)
-  p_values_u <- matrix(0,length(n),length(F))
-  p_values_v <- p_values_u
-  
-
-  for ( i in 1:length(n) ) for( j in 1:length(F) ){
-      X <- rMF(n[i],F[[j]])
-      sol <- MKSDE(X,model,GoF = TRUE)
-      p_values_u[i,j] <- sol$p_u
-      p_values_v[i,j] <- sol$p_v
-  }
-  
-  return(list(p_values_u = p_values_u, p_values_v = p_values_v))
-}
-
-
-G <- matrix(0,1000,1000)
