@@ -1,6 +1,6 @@
 # KSD-on-Riemannian-Manifolds
 
-The file _KSD-on-Riemannian-Manifolds.R_ contains the code for computing the Kernel Stein Discrepancy (KSD) and Minimum Kernel Stein Discrepancy Estimator (MKSDE) of widely-used distribution families on commonly-encountered manifolds, and also contain the code for conducting the composite goodness-of-fit test. The corresponding algorithms are presented in the paper:
+The file _KSD-on-Riemannian-Manifold.R_ contains the code for computing the Kernel Stein Discrepancy (KSD) and Minimum Kernel Stein Discrepancy Estimator (MKSDE) of widely-used distribution families on commonly-encountered manifolds, and also contain the code for conducting the composite goodness-of-fit test. The corresponding algorithms are presented in the paper:
 
 Theory and Applications of Kernel Stein Discrepancy on Riemannian Manifolds
 
