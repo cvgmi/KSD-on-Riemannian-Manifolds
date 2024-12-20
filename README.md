@@ -9,7 +9,7 @@ Theory and Applications of Kernel Stein Discrepancy on Riemannian Manifolds
 All functions in the repository requires two arguments
 
 ### _X_
-a 3D array that contains all the samples, where each X[,,i] is a sample matrix
+a 3D array that contains all the samples, where each X[,,i] is a sample matrix; 
 
 ### _model_
 a list that incorporates all other parameters, including
@@ -32,6 +32,12 @@ a list that incorporates all other parameters, including
 - _model$beta_: scalar, the parameter $\beta$ of the inverse quadratic kernel, with default $1$
 - _model$gamma_: scalar, the parameter $\gamma$ of then inverse quadratic kernel, with default $1$
 
+### Dimensions of the data _X_
+Once _X_ is inputed, its dimensions will be recorded in following variables:
+> - _model$N1_: integer, the col number of each sample matrix
+> - _model$N2_: integer, the row number of each sample matrix
+> - _model$r_: integer, the rank of each sample matrix
+> - _model$n_: integer, number of samples
 
 ## 2. Functions
 
