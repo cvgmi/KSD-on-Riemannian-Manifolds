@@ -4,28 +4,33 @@ This repository contains the code for computing the Kernel Stein Discrepancy (KS
 
 Theory and Applications of Kernel Stein Discrepancy on Riemannian Manifolds
 
-## 1. Input data and Parameters
+## 1. Arguments
 
-### Data
-- _X_: a 3D array, where each X[,,i] represents a sample matrix
+All functions in the repository requires two arguments
 
-### Parameters
-- _model_: a list that incorporates all other parameters
+### _X_
+a 3D array that contains all the samples, where each X[,,i] is a sample matrix
 
+### _model_
+a list that incorporates all other parameters, including
+- _model$space_: character string, specifying which manifold is the sample space
+> - "Stiefel": the Stiefel manifold $\mathcal{V}_ r(N)$, including the sphere $\mathcal{V}_ 1(N)=\mathbb{S}^{N-1}$ and the special rotation group $\mathcal{V}_ {N-1}(N)=\text{SO}(N)$
+> - "Grassmann": the Grassmann manifold $\mathcal{G}_ r(N)$
 
+- _model$family_: character string, specifying which distribution family is being used
+> - "MF": the matrix Fisher family $p(X)\propto\exp(F^T X)$
+> - "MB": the matrix Bingham family $p(X)\propto\exp(X^T A X)$
+> - "MFB": the matrix Fisher-Bingham family $p(X)\propto \exp(X^T A X + F^T X) $
+  
+- _model$kernel_: character string, specifying which kernel is being used
+> - "Gaussian": the Gaussian kernel $\kappa(x,y)=\exp(-\frac{\tau}{2}\Vert x-y\Vert^2)$
+> - "InverseQ": the inverse quadratic kernel $\kappa(x,y)= (\beta+\Vert x-y\Vert^2)^{-\gamma}$
 
-
-### Manifolds
-- Stiefel manifold $\mathcal{V}_ r(N)$: including the sphere $\mathcal{V}_ 1(N)=\mathbb{S}^{N-1}$  and the rotational group $\mathcal{V}_ {{N-1}}(N)=\text{SO}(N)$.
-- Grassmann manifold $\mathcal{G}_ r(N)$
-
-### Distribution families
-- Matrix Fisher family $\text{MF}(F)$
-- Matrix Bingham family $\text{MB}(A)$
-- Matrix Fisher-Bingham family $\text{MFB}(A,F)$
-
-### Kernel
-- Gaussian kernel: $\kappa(x,y)$
+- _model$F_: matrix, the parameter $F$ of the MF (or MFB) family, with default $0$
+- _model$A_: matrix, the parameter $A$ of the MB (or MFB) family, with default $0$
+- _model$tau_: scalar, the parameter $\tau$ of the Gaussian kernel, with default $1$
+- _model$beta_: scalar, the parameter $\beta$ of the inverse quadratic kernel, with default $1$
+- _model$gamma_: scalar, the parameter $\gamma$ of then inverse quadratic kernel, with default $1$
 
 
 ## 2. Functions
