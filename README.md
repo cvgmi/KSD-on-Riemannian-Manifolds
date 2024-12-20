@@ -32,6 +32,8 @@ a list that incorporates all other parameters, including
 - _model$beta_: scalar, the parameter $\beta$ of the inverse quadratic kernel, with default $1$
 - _model$gamma_: scalar, the parameter $\gamma$ of then inverse quadratic kernel, with default $1$
 
+- _model$nprime_: integrer, the number $n'$ of generations in the goodness-of-fit test, with default $10000$
+
 ### Dimensions of the data _X_
 Once _X_ is inputed, its dimensions will be automatically recorded in _model_ as following variables:
 > - _model$N1_: integer, the col number of each sample matrix
@@ -41,6 +43,10 @@ Once _X_ is inputed, its dimensions will be automatically recorded in _model_ as
 
 ## 2. Functions
 
-- _KSD(X,model)_: compute the values of empirical KSD
-- _MKSDE(X,model,GoF)_: compute the MKSDE of given samples, if _GoF=TRUE_, then also output the p values of the composite goodness-of-fit test
+### _KSD(X,model)_
+compute the values of empirical KSD
 
+### _MKSDE(X,model,GoF)_
+compute the MKSDE of given samples, if _GoF=TRUE_, then also output the p values of the composite goodness-of-fit test
+
+### Other functions
