@@ -44,7 +44,7 @@ Once _X_ is inputed, its dimensions will be automatically recorded in _model_ as
 ## 2. Functions
 
 ### _KSD(X,model)_
-compute the values of empirical KSD
+Compute the values of empirical KSD. The output is a list, including the values of $U^w_ p$, $V^w_ p$ and the matrix $(\kappa^w_ p(x_ i,x_ j))_{i j}$.
 
 ### _MKSDE(X,model,GoF)_
 compute the MKSDE of given samples, if _GoF=TRUE_, then also output the p values of the composite goodness-of-fit test
