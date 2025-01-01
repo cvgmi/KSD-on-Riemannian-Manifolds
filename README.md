@@ -48,5 +48,3 @@ Compute the values of empirical KSD. The output is a list, including the values 
 
 ### _MKSDE(X,model,GoF)_
 compute the MKSDE of given samples, if _GoF=TRUE_, then also output the p values of the composite goodness-of-fit test
-
-### Other functions
